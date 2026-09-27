@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#050A14">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mini PLM 產品巡禮">
+<meta property="og:description" content="Mini PLM 功能宣傳頁：表單簽核、Trigger 自動化、料號／BOM／AML、權限治理與 Agile PLM 移轉。">
+<meta property="og:url" content="https://kevintsai1202.github.io/mini-plm-promo/">
+<meta property="og:image" content="https://kevintsai1202.github.io/mini-plm-promo/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<title>Mini PLM 產品巡禮</title>
+<meta name="description" content="Mini PLM 功能宣傳頁：表單簽核、Trigger 自動化、料號／BOM／AML、權限治理與 Agile PLM 移轉。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,300..800&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha384-CI3ELBVUz9XQO+97x6nwMDPosPR5XvsxW2ua7N1Xeygeh1IxtgqtCkGfQY9WWdHu" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="promo.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Mini PLM 首頁">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1.5" y="1.5" width="29" height="29" rx="7" fill="none" stroke="#22D3C5" stroke-width="1.6"/><path d="M8 22V10l8 7 8-7v12" fill="none" stroke="#E6EEF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="16" cy="17" r="1.8" fill="#FFB547"/></svg>
+      Mini PLM
+    </a>
+    <nav class="nav" aria-label="頁面索引">
+      <a href="#top">為什麼需要</a>
+      <a href="#journey">一張變更單的旅程</a>
+      <a href="#wall">實機畫面</a>
+      <a href="#platform">平台架構</a>
+    </nav>
+    <button class="sound-btn" id="soundBtn" type="button" aria-pressed="false" title="開關配樂與音效">
+      <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="soundLbl">聲音 OFF</span>
+    </button>
+  </div>
+</header>
+
+<main>
+<!-- ===== Hero：為什麼需要、做了什麼、有什麼能力（三章 3D 動畫） ===== -->
+<section class="hero" id="top">
+  <div class="hero-stage" id="heroStage" aria-hidden="true"><canvas id="hero3d"></canvas><div class="hero-scrim"></div></div>
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow">Mini PLM · 產品生命週期管理</p>
+      <h1>每一顆料號、<br>每一張簽核單，<br><span class="nw">都在<span class="em">同一套系統</span>裡。</span></h1>
+      <div class="story glass" id="story">
+        <div class="chips" role="tablist" aria-label="動畫章節">
+          <button class="chip on" type="button" data-ch="0" role="tab"><i></i>01 為什麼需要</button>
+          <button class="chip" type="button" data-ch="1" role="tab"><i></i>02 收進同一套系統</button>
+          <button class="chip" type="button" data-ch="2" role="tab"><i></i>03 模組互相接手</button>
+          <button class="replay" type="button" id="replay" title="重新播放動畫">↻ 重播</button>
+        </div>
+        <div class="caps" aria-live="polite">
+          <p class="on" data-ch="0"><b>資料散在各處，沒人說得清哪一版才算數。</b>料號在 Excel、簽核在 Email、歷史留在舊的 Agile PLM。變更一多，追溯只能靠記憶。</p>
+          <p data-ch="1"><b>Mini PLM 把這些資料收進同一套系統。</b>表單、簽核、料號、BOM、AML 和權限共用同一個資料庫，資料改一次，其他頁面看到的就是新的。</p>
+          <p data-ch="2"><b>模組之間會自動接手。</b>表單發行時料號自動升版，符合規則就自動加簽，權限一改，沒有權限的人就看不到那個欄位；舊系統的資料也能先審過再搬進來。</p>
+        </div>
+      </div>
+      <div class="cta">
+        <button class="btn btn-primary" id="playHero" type="button"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>播放動畫（含配樂）</button>
+        <a class="btn btn-ghost" href="#journey">往下捲，看一張變更單怎麼走完</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="stats" role="list">
+      <div class="stat" role="listitem"><b data-count="5">5</b><span>Trigger 觸發點，交易內或 commit 後執行</span></div>
+      <div class="stat" role="listitem"><b data-count="3">3</b><span>Trigger 失敗策略：警告繼續、停用 trigger、整筆回滾</span></div>
+      <div class="stat" role="listitem"><b data-count="4">4</b><span>介面語言：English、繁中、简中、ไทย</span></div>
+      <div class="stat" role="listitem"><b data-count="2">2</b><span>資料庫：PostgreSQL 16 與 Oracle 同步 migration</span></div>
+      <div class="stat" role="listitem"><b data-count="76">76</b><span>Playwright E2E 測試規格，檢查主要操作流程</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 旅程：捲動時左側整合地圖跟著走 ===== -->
+<section id="journey">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow">Scroll · 一張變更單的旅程</p>
+      <h2>跟著一張變更單，看九個模組怎麼接起來</h2>
+      <p>範例變更單 ECN-2026-0142「LENS 改用第二供應商」會依序經過九個模組。往下捲時，寬螢幕左側的系統地圖會標出它走到哪一站；兩個模組都走過之後，連接它們的藍色虛線會亮起，代表兩者之間的自動串接。</p>
+    </header>
+  </div>
+  <div class="wrap j-grid">
+    <div class="j-stage" aria-hidden="true">
+      <div class="j-sticky">
+        <div class="j-ticket glass"><span class="id">ECN-2026-0142</span><span>LENS 改用第二供應商</span><span class="rev" id="tRev">REV A</span><span class="state" id="tState">歷史資料已匯入</span></div>
+        <div class="j-map">
+          <svg viewBox="0 0 640 300" id="jmap">
+            <defs>
+              <filter id="glow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              <linearGradient id="pathGrad" x1="0" x2="1"><stop offset="0" stop-color="#0E8C85"/><stop offset="1" stop-color="#22D3C5"/></linearGradient>
+            </defs>
+            <g id="xlinks"></g>
+            <path id="jPath" d="M80,46 H560 C620,46 620,150 560,150 H80 C20,150 20,254 80,254 H560" fill="none" stroke="rgba(120,220,230,.16)" stroke-width="3"/>
+            <path id="jPathDone" d="M80,46 H560 C620,46 620,150 560,150 H80 C20,150 20,254 80,254 H560" fill="none" stroke="url(#pathGrad)" stroke-width="3" stroke-linecap="round"/>
+            <g id="nodes"></g>
+            <g id="token" filter="url(#glow)"><circle r="9" fill="#22D3C5" opacity=".35"/><circle r="5" fill="#E6FFFB"/></g>
+          </svg>
+        </div>
+        <div class="j-screen">
+          <div class="j-card" id="jCard">
+            <div class="bar"><i></i><i></i><i></i><span class="url" id="jUrl">/ admin / agile-import</span></div>
+            <div class="layers" id="jLayers"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="j-steps" id="jSteps">
+      <article class="j-step" data-state="歷史資料已匯入" data-url="/ admin / agile-import" data-media="assets/clip-agile-import.mp4">
+        <div class="inner glass">
+          <div class="kick"><span class="no">STEP 01</span>Agile PLM 移轉</div>
+          <h3>上線前，先把 Agile 的歷史資料搬進來</h3>
+          <p class="lead">舊 Agile PLM 的流程、類別與料號資料先進暫存區。未解析的簽核人、同名衝突逐項決定，確認後才寫入，對帳表列出每一筆的處理結果。</p>
+          <ul class="feats">
+            <li><div><b>流程與類別匯入</b>：衝突可略過、覆寫或改名，發布的流程一律先停用。</div></li>
+            <li><div><b>百萬筆料號資料</b>：分批執行、即時進度，重啟後從中斷的批次續跑。</div></li>
+          </ul>
+          <div class="counts" aria-label="模擬連線一次 DRY_RUN 的萃取筆數">
+            <div><b data-count="22000">22,000</b><span>ITEM</span></div><div><b data-count="10800">10,800</b><span>BOM</span></div>
+            <div><b data-count="9866">9,866</b><span>AML</span></div><div><b data-count="5600">5,600</b><span>FILE</span></div>
+          </div>
+          <p class="note">數字取自開發環境模擬連線的一次 DRY_RUN。</p>
+          <div class="links">交給下一步 → <span class="l">料號與 BOM</span><span class="l">簽核流程</span></div>
+          <div class="thumbs"><button type="button" data-lb="assets/agile-reconcile.webp" aria-label="放大：對帳表"><img src="assets/agile-reconcile.webp" alt="" loading="lazy"></button><button type="button" data-lb="assets/agile-issues.webp" aria-label="放大：問題報表"><img src="assets/agile-issues.webp" alt="" loading="lazy"></button><button type="button" data-lb="assets/agile-live.webp" aria-label="放大：即時進度"><img src="assets/agile-live.webp" alt="" loading="lazy"></button></div>
+          <div class="j-inline"><video src="assets/clip-agile-import.mp4" muted loop playsinline preload="none"></video></div>
+        </div>
+      </article>
+
+      <article class="j-step" data-state="表單已設計" data-url="/ admin / configform · Visual" data-media="assets/clip-visual-designer.mp4">
+        <div class="inner glass">
+          <div class="kick"><span class="no">STEP 02</span>視覺化表單設計器</div>
+          <h3>ECN 表單的版面，用拖拉排好</h3>
+          <p class="lead">管理者在設計器左邊拿欄位、中間排版面、右邊改屬性，不必對著欄位清單想像畫面。</p>
+          <ul class="feats">
+            <li><div><b>十多種欄位</b>：text、date、select、multilist、upload、html、table、annotated doc。</div></li>
+            <li><div><b>Form 與 Item 共用</b>：表單類型與料號類型用同一套設計器。</div></li>
+          </ul>
+          <div class="links">交給下一步 → <span class="l">欄位權限</span><span class="l">進階搜尋</span></div>
+          <div class="thumbs"><button type="button" data-lb="assets/visual-designer.webp" aria-label="放大：設計器"><img src="assets/visual-designer.webp" alt="" loading="lazy"></button></div>
+          <div class="j-inline"><video src="assets/clip-visual-designer.mp4" muted loop playsinline preload="none"></video></div>
+        </div>
+      </article>
+
+      <article class="j-step" data-state="已送出 · 待簽核" data-url="/ user / actions" data-media="assets/my-actions.webp">
+        <div class="inner glass">
+          <div class="kick"><span class="no">STEP 03</span>待辦與即時通知</div>
+          <h3>一送出，簽核人馬上收到</h3>
+          <p class="lead">申請人送出變更單後，簽核人的首頁待辦清單立刻多一筆，右上角同時跳出通知，不必重新整理。</p>
+          <ul class="feats">
+            <li><div><b>My Actions</b>：依關卡、表單類型、代理人狀態整理。</div></li>
+            <li><div><b>SSE 即時推播</b>：斷線自動改用輪詢，回來後再切回推播。</div></li>
+          </ul>
+          <div class="links">交給下一步 → <span class="l">簽核流程</span></div>
+          <div class="j-inline"><img src="assets/my-actions.webp" alt="待簽核清單" loading="lazy"></div>
+        </div>
+      </article>
+
+      <article class="j-step" data-state="簽核中 · STEP 3 / 7" data-url="/ admin / workflow · Canvas" data-media="assets/clip-workflow-canvas.mp4">
+        <div class="inner glass">
+          <div class="kick"><span class="no">STEP 04</span>簽核流程</div>
+          <h3>七關流程，每一關卡在誰手上都看得到</h3>
+          <p class="lead">流程在畫布上拖拉排好，表單頁用進度條與歷程表顯示目前關卡。退回會回到指定關卡，並以簽核週期區分每一輪。</p>
+          <ul class="feats">
+            <li><div><b>Flow Designer</b>：Table／Canvas 雙模式；啟用中的流程自動鎖住結構。</div></li>
+            <li><div><b>條件路由</b>：依欄位值、目前關卡或簽核人，決定這一關要找誰簽。</div></li>
+            <li><div><b>流程文件匯出</b>：含流程圖與各關設定，稽核直接附上。</div></li>
+          </ul>
+          <div class="links">交給下一步 → <span class="l">Trigger 自動化</span><span class="l">料號升版</span></div>
+          <div class="thumbs"><button type="button" data-lb="assets/form-workflow.webp" aria-label="放大：表單簽核歷程"><img src="assets/form-workflow.webp" alt="" loading="lazy"></button><button type="button" data-lb="assets/wf-doc.webp" aria-label="放大：流程文件"><img src="assets/wf-doc.webp" alt="" loading="lazy"></button></div>
+          <div class="j-inline"><video src="assets/clip-workflow-canvas.mp4" muted loop playsinline preload="none"></video></div>
+        </div>
+      </article>
+
+      <article class="j-step" data-state="自動加簽 +2 人" data-url="/ admin / configtrigger · IMPORT_APPROVER" data-media="assets/trigger-modal.webp">
+        <div class="inner glass">
+          <div class="kick"><span class="no">STEP 05</span>Trigger 自動化</div>
+          <h3>供應商變更，由規則自動加簽品保</h3>
+          <p class="lead">Trigger 在流程的 5 個時間點評估條件。這張範例 ECN 的「變更類別」是供應商變更，所以進入第三關前，系統自動從 Approver Matrix 找出品保與採購主管加入簽核。</p>
+          <ul class="feats">
+            <li><div><b>條件群組</b>：同組 AND、跨組 OR；依 priority 排序執行。</div></li>
+            <li><div><b>簽核人來源</b>：申請人主管、Profile 關係、前一關簽核者、Approver Matrix、External Lookup。</div></li>
+            <li><div><b>失敗策略</b>：警告繼續、失敗停用或整筆回滾；可先 Dry-run。</div></li>
+          </ul>
+          <div class="links">交給下一步 → <span class="l">待辦通知</span><span class="l">簽核流程</span></div>
+          <div class="thumbs"><button type="button" data-lb="assets/trigger-list.webp" aria-label="放大：Trigger 清單"><img src="assets/trigger-list.webp" alt="" loading="lazy"></button><button type="button" data-lb="assets/approver-matrix.webp" aria-label="放大：Approver Matrix"><img src="assets/approver-matrix.webp" alt="" loading="lazy"></button></div>
+          <div class="j-inline"><img src="assets/trigger-modal.webp" alt="IMPORT_APPROVER 設定" loading="lazy"></div>
+        </div>
+      </article>
+
+      <article class="j-step" data-state="已發行 · REV B" data-url="/ user / items / 110101 · BOM" data-media="assets/clip-item-bom.mp4">
+        <div class="inner glass">
+          <div class="kick"><span class="no">STEP 06</span>料號、BOM 與 AML</div>
+          <h3>最後一關簽完，料號自動升版</h3>
+          <p class="lead">表單發行時，系統依 Impacted Items 替受影響料號建立新版本（這裡是 REV B）並套用 Redline 修改，再依生命週期把版本設為 Released 或 Obsolete。</p>
+          <ul class="feats">
+            <li><div><b>多階 BOM 樹</b>：Expand All 一次展開，組件與零件以圖示區分。</div></li>
+            <li><div><b>AML 與 Where Used</b>：列出製造商與 MPN（主要／替代），也能反查被哪些組件用到。</div></li>
+            <li><div><b>版次狀態</b>：DRAFT → RELEASED → OBSOLETE，可切換查看各個版本。</div></li>
+          </ul>
+          <div class="links">交給下一步 → <span class="l">權限治理</span><span class="l">進階搜尋</span></div>
+          <div class="thumbs"><button type="button" data-lb="assets/item-aml.webp" aria-label="放大：AML"><img src="assets/item-aml.webp" alt="" loading="lazy"></button><button type="button" data-lb="assets/item-history.webp" aria-label="放大：料號歷程"><img src="assets/item-history.webp" alt="" loading="lazy"></button></div>
+          <div class="j-inline"><video src="assets/clip-item-bom.mp4" muted loop playsinline preload="none"></video></div>
+        </div>
+      </article>
+
+      <article class="j-step" data-state="欄位權限生效" data-url="/ admin / permission-diagnosis" data-media="assets/perm-diagnosis.webp">
+        <div class="inner glass">
+          <div class="kick"><span class="no">STEP 07</span>權限治理與診斷</div>
+          <h3>供應商報價欄，只有採購看得到</h3>
+          <p class="lead">權限以角色為核心，指派給群組或帳號，細到表單類型、料號類型與單一欄位。有人問「為什麼我看不到」，權限診斷矩陣直接指出卡在哪一道檢查。</p>
+          <ul class="feats">
+            <li><div><b>RBAC</b>：角色 → 群組 → 帳號，選單、功能、欄位 Read／Modify 分開設定。</div></li>
+            <li><div><b>JWT + LDAP</b>：登入失敗自動鎖定，檔案下載在伺服器端驗權。</div></li>
+          </ul>
+          <div class="links">交給下一步 → <span class="l">進階搜尋</span></div>
+          <div class="thumbs"><button type="button" data-lb="assets/perm-field.webp" aria-label="放大：欄位權限矩陣"><img src="assets/perm-field.webp" alt="" loading="lazy"></button></div>
+          <div class="j-inline"><img src="assets/perm-diagnosis.webp" alt="權限診斷矩陣" loading="lazy"></div>
+        </div>
+      </article>
+
+      <article class="j-step" data-state="可被搜尋追溯" data-url="/ user / avdancedsearch" data-media="assets/saved-search.webp">
+        <div class="inner glass">
+          <div class="kick"><span class="no">STEP 08</span>進階搜尋</div>
+          <h3>半年後要稽核，用條件把這張單找回來</h3>
+          <p class="lead">表單、料號、使用者、群組四種對象都能用條件表格組查詢，常用的條件可以存成選單項目，結果欄位也能自訂。</p>
+          <ul class="feats">
+            <li><div><b>依欄位型態給運算子</b>：日期 IsToday、Range；下拉 In、IsNull。</div></li>
+            <li><div><b>Saved Search</b>：可在執行時才提示輸入值，結果能匯出 Excel。</div></li>
+          </ul>
+          <div class="links">交給下一步 → <span class="l">系統監控</span></div>
+          <div class="j-inline"><img src="assets/saved-search.webp" alt="進階搜尋" loading="lazy"></div>
+        </div>
+      </article>
+
+      <article class="j-step" data-state="全程可監控" data-url="/ admin / monitor" data-media="assets/monitor.webp">
+        <div class="inner glass">
+          <div class="kick"><span class="no">STEP 09</span>系統監控與使用分析</div>
+          <h3>整條路線跑得順不順，管理者自己看</h3>
+          <p class="lead">連線池、HTTP 延遲、JVM 記憶體、SSE 連線數、快取命中率與 Top SQL 都在同一頁；Menu Usage 列出沒人用的選單，整理選單有依據。</p>
+          <ul class="feats">
+            <li><div><b>Overview 與 Top SQL</b>：最慢端點、最重查詢自動排序。</div></li>
+            <li><div><b>Error Logs 與 What's New</b>：錯誤可查明細，每次發版自動產生版本說明。</div></li>
+          </ul>
+          <div class="links">監看範圍 → <span class="l">各模組的 API 與 SQL</span></div>
+          <div class="thumbs"><button type="button" data-lb="assets/usage.webp" aria-label="放大：選單使用分析"><img src="assets/usage.webp" alt="" loading="lazy"></button></div>
+          <div class="j-inline"><img src="assets/monitor.webp" alt="系統監控" loading="lazy"></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3D 畫面環 ===== -->
+<section class="wall" id="wall">
+  <div class="wall-pin" id="wallPin">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow">Real screens · 實機擷取</p>
+        <h2>這些畫面都擷取自實際系統</h2>
+        <p>截圖與錄影來自開發環境，資料是測試與壓測資料。往下捲會轉動畫面環，點任一張可以放大。</p>
+      </header>
+    </div>
+    <div class="wall-scene"><div class="wall-ring" id="wallRing"></div></div>
+    <p class="wall-hint">捲動以旋轉 · 點擊放大</p>
+  </div>
+</section>
+
+<!-- ===== 平台：爆炸視圖 ===== -->
+<section id="platform">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow">Exploded view · 平台架構</p>
+      <h2>沿用既有的 Tomcat 與資料庫部署</h2>
+    </header>
+    <div class="platform-grid">
+      <div>
+        <p style="color:var(--muted);max-width:34em">前後端打包成單一 WAR 檔。資料庫變更一律由 Flyway 管理，PostgreSQL 與 Oracle 兩套 migration 同步維護，CI 會檢查兩邊版本是否對齊。</p>
+        <div class="layers-legend">
+          <div class="lg glass" style="--c:#22D3C5"><div><b>Client · React SPA</b><span>Ant Design Pro 介面、4 語系、SSE 即時事件、Focus Mode 與 PDF 匯出。</span></div></div>
+          <div class="lg glass" style="--c:#3B8CFF"><div><b>Server · Spring Boot on Tomcat 9</b><span>REST API 統一 /api/v1，JWT 無狀態認證可接 LDAP，管理端點集中在 /api/v1/admin。</span></div></div>
+          <div class="lg glass" style="--c:#FFB547"><div><b>Data · PostgreSQL 16 / Oracle</b><span>Flyway 雙資料庫 migration、Hibernate validate、機密放外部設定檔。</span></div></div>
+        </div>
+        <div class="langs"><span>English</span><span>繁體中文</span><span>简体中文</span><span>ไทย</span></div>
+      </div>
+      <div class="xview" id="xview" aria-hidden="true">
+        <div class="xstack" id="xstack">
+          <div class="slab" style="--k:0;--c:#FFB547"><span class="tt">Data</span><span class="tag">PostgreSQL · Oracle</span><div class="mods"><i>Flyway</i><i>z_item</i><i>mp_role</i></div></div>
+          <div class="slab" style="--k:1;--c:#3B8CFF"><span class="tt">Server</span><span class="tag">Spring Boot · Tomcat 9</span><div class="mods"><i>Trigger</i><i>Workflow</i><i>JWT/LDAP</i></div>
+            <span class="beam" style="left:22%;top:40%"></span><span class="beam" style="left:62%;top:30%;animation-delay:-.8s"></span></div>
+          <div class="slab" style="--k:2;--c:#22D3C5"><span class="tt">Client</span><span class="tag">React SPA</span><div class="mods"><i>My Actions</i><i>BOM</i><i>i18n ×4</i></div></div>
+          <span class="beam" style="left:30%;top:50%;animation-delay:-.4s"></span><span class="beam" style="left:74%;top:44%;animation-delay:-1.6s"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <p class="eyebrow">END OF DRAWING SET · MINI-PLM</p>
+    <h2>變更單、料號和簽核紀錄，<span style="color:var(--teal)">都能在同一個地方查到。</span></h2>
+    <p>Mini PLM 部署於內網。需要帳號或權限請洽系統管理者；想重看動畫，按下方按鈕回到開頭。</p>
+    <div class="cta"><button class="btn btn-primary" id="playHero2" type="button"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>回到開頭重播動畫</button></div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>Mini PLM</span><span>畫面擷取自開發環境，資料為測試與壓測資料</span><span>3D 以 Three.js 即時算圖，配樂與音效以 Web Audio 即時合成</span></div></footer>
+
+<div class="lightbox" id="lightbox" hidden><img id="lbImg" alt=""><div class="lb-cap" id="lbCap"></div></div>
+
+<script src="sound.js"></script>
+<script src="promo.js"></script>
+</body>
+</html>
