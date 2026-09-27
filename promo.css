@@ -224,6 +224,15 @@ p{margin:0}
 .langs{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
 .langs span{font:500 12px var(--f-mono);border:1px solid var(--line-strong);padding:4px 10px;border-radius:999px;color:var(--muted)}
 @media (max-width:960px){.platform-grid{grid-template-columns:minmax(0,1fr)}.xview{height:400px}}
+/* 手機：層板變小，層內標籤改由左側圖例說明，並把整座往下放，避免拉開後壓到上方的語系標籤 */
+@media (max-width:600px){
+  .xview{height:420px;margin-top:8px}
+  .xstack{top:70%}
+  .slab .tag{display:none}
+  .slab .tt{font-size:17px;left:16px;bottom:10px}
+  .slab .mods{left:14px;right:14px;top:12px;gap:6px}
+  .slab .mods i{font-size:9.5px;padding:4px}
+}
 
 /* ===== 結尾 ===== */
 .closing{padding-block:clamp(80px,11vw,140px);border-top:1px solid var(--line);position:relative;overflow:hidden}

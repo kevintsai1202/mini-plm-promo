@@ -540,8 +540,10 @@ const Journey = (() => {
   const xs = document.getElementById("xstack"), xv = document.getElementById("xview");
   if (!HAS_GSAP || REDUCE) return;
   const o = { g: 26 };
+  // 手機上層板較小，拉開的距離也縮小，整座才放得進 .xview
+  const maxGap = matchMedia("(max-width: 600px)").matches ? 78 : 118;
   gsap.to(o, {
-    g: 118, ease: "none",
+    g: maxGap, ease: "none",
     scrollTrigger: { trigger: "#xview", start: "top 85%", end: "center 45%", scrub: 0.5 },
     onUpdate: () => xs.style.setProperty("--gap", o.g + "px"),
   });
